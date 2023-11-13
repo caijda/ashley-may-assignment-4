@@ -27,6 +27,7 @@ public class FileService {
 	
 	public void writeFile(Student[] students, String fileName) throws FileNotFoundException, IOException {
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))){
+			writer.write("Student ID,Student Name,Course,Grade\n");
 			for(Student student : students) {
 				writer.write(studentService.writeStudent(student));
 			}
